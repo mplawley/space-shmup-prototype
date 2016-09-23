@@ -13,6 +13,10 @@ public class Hero : MonoBehaviour
 
 	[Header("Ship status")]
 	public float shieldLevel = 1;
+
+	[Header("Other")]
+	public Bounds bounds;
+
 	#endregion
 
 	#region Methods
@@ -20,6 +24,7 @@ public class Hero : MonoBehaviour
 	void Awake()
 	{
 		S = this; //Set the Singleton
+		bounds = Utils.CombineBoundsOfChildren(this.gameObject);
 	}
 
 	void Start()
@@ -39,6 +44,16 @@ public class Hero : MonoBehaviour
 		pos.x += xAxis * speed * Time.deltaTime;
 		pos.y += yAxis * speed * Time.deltaTime;
 		transform.position = pos;
+
+		bounds.center = transform.position;
+
+		//Keep the ship constrained to the screen bounds
+		Vector3 off = Utils.ScreenBoundsCheck(bounds, BoundsTest.onScreen);
+		if (off != Vector3.zero)
+		{
+			pos -= off;
+			transform.position = pos;
+		}
 
 		//Rotate the ship to make it feel more dynamic
 		transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
