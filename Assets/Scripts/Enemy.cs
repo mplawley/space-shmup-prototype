@@ -9,8 +9,13 @@ public class Enemy : MonoBehaviour
 	public float fireRate = 0.3f; //The seconds/shot (Unused)
 	public float health = 10;
 	public int score = 100; //Pointed earned for destroying this
+	public int showDamageForFrames = 2; //Number of frames to show damage
 
-	[Header("Enemy bounds")]
+	[Header("_________________")]
+	public Color[] originalColors;
+	public Material[] materials; //All the materials of this and its children
+	public int remainingDamageFrames = 0; //Damage frames left
+
 	public Bounds bounds; //The bounds of this and its children
 	public Vector3 boundsCenterOffset; //Distance of Bounds.center from position
 	#endregion
@@ -19,12 +24,26 @@ public class Enemy : MonoBehaviour
 
 	void Awake()
 	{
+		materials = Utils.GetAllMaterials(gameObject);
+		originalColors = new Color[materials.Length];
+		for (int i = 0; i < materials.Length; i++)
+		{
+			originalColors[i] = materials[i].color;
+		}
 		InvokeRepeating("CheckOffscreen", 0f, 2f);
 	}
 
 	void Update()
 	{
-		Move();	
+		Move();
+		if (remainingDamageFrames > 0)
+		{
+			remainingDamageFrames--;
+			if (remainingDamageFrames == 0)
+			{
+				UnShowDamage();
+			}
+		}
 	}
 
 	public virtual void Move()
@@ -72,6 +91,55 @@ public class Enemy : MonoBehaviour
 				//then destroy it
 				Destroy(this.gameObject);
 			}
+		}
+	}
+
+	void OnCollisionEnter(Collision coll)
+	{
+		GameObject other = coll.gameObject;
+		switch (other.tag)
+		{
+		case "ProjectileHero":
+			Projectile p = other.GetComponent<Projectile>();
+			//Enemies don't take damage unless they're onscreen
+			//This stops the player from shooting them before they are visible
+			bounds.center = transform.position + boundsCenterOffset;
+
+			if (bounds.extents == Vector3.zero || Utils.ScreenBoundsCheck(bounds, BoundsTest.offScreen) != Vector3.zero)
+			{
+				Destroy(other);
+				break;
+			}
+
+			//Hurt this enemy
+			ShowDamage();
+
+			//Get the damage amount from the Projectile.type & Main.W_DEFS
+			health -= Main.W_DEFS[p.type].damageOnHit;
+			if (health <= 0)
+			{
+				//Destroy this enemy
+				Destroy(this.gameObject);
+			}
+			Destroy(other);
+			break;
+		}
+	}
+
+	void ShowDamage()
+	{
+		foreach (Material m in materials)
+		{
+			m.color = Color.red;
+		}
+		remainingDamageFrames = showDamageForFrames;
+	}
+
+	void UnShowDamage()
+	{
+		for (int i = 0; i < materials.Length; i++)
+		{
+			materials[i].color = originalColors[i];
 		}
 	}
 	#endregion
