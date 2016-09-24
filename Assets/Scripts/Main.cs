@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
@@ -45,16 +46,16 @@ public class Main : MonoBehaviour
 		Invoke("SpawnEnemy", enemySpawnRate);
 	}
 
-	// Use this for initialization
-	void Start()
+	public void DelayedRestart(float delay)
 	{
-	
+		//Invoke the Restart() method in delay seconds
+		Invoke("Restart", delay);
 	}
-	
-	// Update is called once per frame
-	void Update()
+
+	public void Restart()
 	{
-	
+		//Reload the Scene_0 to restart the game
+		SceneManager.LoadScene("Scene_0");
 	}
 	#endregion
 }

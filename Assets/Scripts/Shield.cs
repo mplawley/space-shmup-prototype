@@ -12,13 +12,6 @@ public class Shield : MonoBehaviour
 
 	#region Methods
 
-	// Use this for initialization
-	void Start()
-	{
-	
-	}
-	
-	// Update is called once per frame
 	void Update()
 	{
 		//Read the current shield level from the Hero singleton
