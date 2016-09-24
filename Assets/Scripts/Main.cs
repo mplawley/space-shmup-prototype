@@ -7,6 +7,8 @@ public class Main : MonoBehaviour
 {
 	#region Fields
 	public static Main S; //Singleton
+	public static Dictionary<WeaponType, WeaponDefinition> W_DEFS;
+
 	public GameObject[] prefabEnemies;
 	public float enemySpawnPerSecond = 0.5f; //# of enemies per second
 	public float enemySpawnPadding = 1.5f; //Padding for position
@@ -30,6 +32,26 @@ public class Main : MonoBehaviour
 
 		//Invoke call SpawnEnemy() once after a 2-second delay
 		Invoke("SpawnEnemy", enemySpawnRate);
+
+		//A generic dictionary with WeaponType as the key
+		W_DEFS = new Dictionary<WeaponType, WeaponDefinition>();
+		foreach (WeaponDefinition def in weaponDefinitions)
+		{
+			W_DEFS[def.type] = def;
+		}
+	}
+
+	public static WeaponDefinition GetWeaponDefinition(WeaponType wt)
+	{
+		//Check to make sure that the key exists in the Dictionary
+		//Attemping to retrieve a key that didn't exist would throw an error here:
+		if (W_DEFS.ContainsKey(wt))
+		{
+			return (W_DEFS[wt]);
+		}
+
+		//This will return a definition for WeaponType.none, which means it has failed to find the WeaponDefinition
+		return (new WeaponDefinition());
 	}
 
 	void Start()
