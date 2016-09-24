@@ -22,7 +22,7 @@ GameObject:
   - 33: {fileID: 33000010009849966}
   - 65: {fileID: 65000011015383352}
   - 23: {fileID: 23000012551624736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - 33: {fileID: 33000013422082198}
   - 65: {fileID: 65000014089682692}
   - 23: {fileID: 23000010032381902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,9 +57,9 @@ GameObject:
   - 4: {fileID: 4000011381905696}
   - 114: {fileID: 114000012768189532}
   - 54: {fileID: 54000012383524094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011132054214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - 23: {fileID: 23000010322412234}
   - 135: {fileID: 135000012729215398}
   - 114: {fileID: 114000013658370730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012209160078}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

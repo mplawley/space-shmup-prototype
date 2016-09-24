@@ -22,7 +22,7 @@ GameObject:
   - 33: {fileID: 33000011796483598}
   - 135: {fileID: 135000010069062942}
   - 23: {fileID: 23000013377088172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - 33: {fileID: 33000013178493026}
   - 135: {fileID: 135000010208982210}
   - 23: {fileID: 23000011195166152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,9 +57,9 @@ GameObject:
   - 4: {fileID: 4000010458528942}
   - 54: {fileID: 54000010526600102}
   - 114: {fileID: 114000012008887084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,6 +203,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71f026bfc7244df0ae630768e563246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  score: 100
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  boundsCenterOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &135000010069062942
 SphereCollider:
   m_ObjectHideFlags: 1
