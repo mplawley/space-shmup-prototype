@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
 	[SerializeField]
 	private WeaponType _type = WeaponType.blaster;
 	public WeaponDefinition def;
-	public GameObject collar;
+	public GameObject collar; //Will define this at compile-time instead of in Awake() or Start()
 	public float lastShot; //Time last shot was fired
 
 	void Start()
