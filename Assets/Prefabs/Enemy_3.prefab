@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014216193704}
   - 54: {fileID: 54000011728280268}
+  - 114: {fileID: 114000011932330190}
   m_Layer: 9
   m_Name: Enemy_3
   m_TagString: Enemy
@@ -36,8 +37,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010371884092}
   - 33: {fileID: 33000011064050258}
-  - 135: {fileID: 135000011054691508}
   - 23: {fileID: 23000011759169348}
+  - 136: {fileID: 136000012885445468}
   m_Layer: 9
   m_Name: CockpitR
   m_TagString: Untagged
@@ -54,8 +55,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011507157514}
   - 33: {fileID: 33000010187555306}
-  - 135: {fileID: 135000011843053088}
   - 23: {fileID: 23000013235285722}
+  - 136: {fileID: 136000014047071640}
   m_Layer: 9
   m_Name: Wing
   m_TagString: Untagged
@@ -72,8 +73,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014143899744}
   - 33: {fileID: 33000012166130248}
-  - 135: {fileID: 135000010330303164}
   - 23: {fileID: 23000010269490346}
+  - 136: {fileID: 136000010073325212}
   m_Layer: 9
   m_Name: CockpitL
   m_TagString: Untagged
@@ -127,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011364906546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.67, y: 2.787438, z: -3.185763}
+  m_LocalPosition: {x: -1.8722677, y: -8.915852, z: -20.224228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -259,8 +260,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!135 &135000010330303164
-SphereCollider:
+--- !u!114 &114000011932330190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011364906546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484d67153fab54863a41562b42a2028a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  score: 100
+  showDamageForFrames: 2
+  powerUpDropChance: 1
+  originalColors: []
+  materials: []
+  remainingDamageFrames: 0
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  boundsCenterOffset: {x: 0, y: 0, z: 0}
+  points: []
+  birthTime: 0
+  lifeTime: 10
+--- !u!136 &136000010073325212
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -268,11 +296,12 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135000011054691508
-SphereCollider:
+--- !u!136 &136000012885445468
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -280,11 +309,12 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135000011843053088
-SphereCollider:
+--- !u!136 &136000014047071640
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -292,6 +322,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}

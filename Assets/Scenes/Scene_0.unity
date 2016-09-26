@@ -449,6 +449,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEnemies:
   - {fileID: 1000011413318444, guid: 117deacbf5b344369bf6ce6c97f921df, type: 2}
+  - {fileID: 1000010438530180, guid: d956ab596d15f432fa31138ad12c16bd, type: 2}
+  - {fileID: 1000012529502752, guid: 904da29d78ec443849df6372d7855070, type: 2}
+  - {fileID: 1000011364906546, guid: 83fa15706bcb940ae99b9773265ca22c, type: 2}
+  - {fileID: 1000012331762622, guid: 56a672235269f4b488aeb37f3a3373d9, type: 2}
   enemySpawnPerSecond: 0.5
   enemySpawnPadding: 1.5
   weaponDefinitions:
