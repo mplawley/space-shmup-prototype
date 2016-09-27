@@ -7,9 +7,8 @@ This is a classic arcade shoot-'em'-up practice game. Here is an example image o
 
 # installation and play
 
-Open Unity and start Scene 0. Use your mouse to pull back a projectile and fire it at the castles!
+Open Unity and start Scene 0. Use the arrow keys or wasd to move and spacebar to fire at the enemies! Pick up powerups and level up your weapons.
 
 # motivation
 
 I am going through Jeremy Gibson's <i>Game Design, Prototyping, and Development</i> textbook and building the prototypes he gives the reader to do. This is the third prototype.
-
