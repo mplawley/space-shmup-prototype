@@ -2,7 +2,7 @@
 
 This is a classic arcade shoot-'em'-up practice game. Here is an example image of gameplay:
 
-![alt tag](https://github.com/mplawley/slingshot-demolition-game/blob/master/MissionDemolitionExample.jpg)
+![alt tag](https://github.com/mplawley/space-shmup-prototype/blob/master/Example.jpg)
 
 
 # installation and play
